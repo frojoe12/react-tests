@@ -20,9 +20,20 @@ class App extends Component {
         return (
             <div>
                 <h2>Header</h2>
-                {products.map(product => {
-                    <div className="product">{product.title}</div>
-                })}
+                <div className="product-list">
+                    {this.state.products.map(product => {
+                        return (
+                            <div key={product.id}>
+                                <div className="product-title">
+                                    {product.title}
+                                </div>
+                                <div className="product-details">
+                                    {product.details}
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
                 <button className="product-add" onClick={this.addProduct}>New product</button>
             </div>
         )
